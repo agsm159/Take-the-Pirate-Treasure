@@ -1,0 +1,137 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/PressStart2P.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/startScreen.gd" type="Script" id=2]
+[ext_resource path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Ship/Ship/Idle/1.png" type="Texture" id=3]
+[ext_resource path="res://Seasonal Tilesets/3 - Tropics/Background parts/_Complete_static_BG_(288 x 208).png" type="Texture" id=4]
+[ext_resource path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Ship/Anchor/1.png" type="Texture" id=5]
+[ext_resource path="res://Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Ship/Sail/No Wind/1.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Theme" id=6]
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 1, 1, 1, 1 )
+Button/colors/font_color_focus = Color( 0.117647, 0.364706, 0.768627, 1 )
+Button/colors/font_color_hover = Color( 0.117647, 0.364706, 0.768627, 1 )
+Button/colors/font_color_pressed = Color( 0.0666667, 0.898039, 0.596078, 1 )
+Button/constants/hseparation = 0
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+outline_color = Color( 0.654902, 0.815686, 0.0941176, 1 )
+font_data = ExtResource( 1 )
+
+[node name="startScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="CompleteStaticBg(288X208)" type="Sprite" parent="background"]
+position = Vector2( 160, 96 )
+scale = Vector2( 1.11111, 0.923077 )
+texture = ExtResource( 4 )
+
+[node name="1" type="Sprite" parent="background"]
+position = Vector2( 280, 168 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+offset = Vector2( 30, 0 )
+
+[node name="2" type="Sprite" parent="background"]
+position = Vector2( 284, 169 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
+
+[node name="3" type="Sprite" parent="background"]
+position = Vector2( 296, 150 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 56, 168 )
+color = Color( 0, 0, 0, 0.443137 )
+
+[node name="controls" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -80.0
+margin_right = 80.0
+margin_bottom = -12.0
+
+[node name="startBtn" type="Button" parent="controls"]
+margin_right = 160.0
+margin_bottom = 20.0
+focus_neighbour_top = NodePath("../quitBtn")
+theme = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.0328445, 0.525894, 0.960938, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Start"
+
+[node name="controlsBtn" type="Button" parent="controls"]
+margin_top = 24.0
+margin_right = 160.0
+margin_bottom = 44.0
+theme = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.0328445, 0.525894, 0.960938, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Controls"
+
+[node name="quitBtn" type="Button" parent="controls"]
+margin_top = 48.0
+margin_right = 160.0
+margin_bottom = 68.0
+focus_neighbour_bottom = NodePath("../startBtn")
+theme = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.0328445, 0.525894, 0.960938, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -144.0
+margin_top = 24.0
+margin_right = 156.0
+margin_bottom = 90.0
+custom_colors/font_color = Color( 0.784314, 0.819608, 0.145098, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Take the 
+Pirate Treasure
+"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="controls/startBtn" to="." method="_on_startBtn_pressed"]
+[connection signal="pressed" from="controls/controlsBtn" to="." method="_on_controlsBtn_pressed"]
+[connection signal="pressed" from="controls/quitBtn" to="." method="_on_quitBtn_pressed"]

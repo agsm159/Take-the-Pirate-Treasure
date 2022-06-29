@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Mushroom.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends base_enemy
+
+func _physics_process(delta: float) -> void:
+	apply_gravity(delta)
+"
+
+[node name="Crabby" instance=ExtResource( 1 )]
+script = SubResource( 1 )
+
+[node name="texture" parent="." index="0"]
+hframes = 1
+frame = 0
+
+[editable path="Hitbox"]

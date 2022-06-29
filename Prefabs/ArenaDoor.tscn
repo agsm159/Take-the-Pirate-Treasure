@@ -1,0 +1,207 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Free/Terrain/Terrain (16x16).png" type="Texture" id=1]
+[ext_resource path="res://Scripts/ArenaDoor.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 88 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -264 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("collison:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -264 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "active"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("collison:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -88 ), Vector2( 0, -264 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("texture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -88 ), Vector2( 0, -264 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "disabled"
+tracks/0/type = "value"
+tracks/0/path = NodePath("collison:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -88 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("texture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -88 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "inactive"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("collison:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -264 ), Vector2( 0, -88 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("texture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -264 ), Vector2( 0, -88 ) ]
+}
+
+[node name="ArenaDoor" type="StaticBody2D"]
+position = Vector2( 0, 176 )
+collision_layer = 8
+script = ExtResource( 2 )
+
+[node name="texture" type="Node2D" parent="."]
+position = Vector2( 0, -264 )
+
+[node name="top" type="Sprite" parent="texture"]
+position = Vector2( 0, -80 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 128, 16, 16 )
+
+[node name="mid" type="Sprite" parent="texture"]
+position = Vector2( 0, 64 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 144, 16, 16 )
+
+[node name="mid2" type="Sprite" parent="texture"]
+position = Vector2( 0, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 144, 16, 16 )
+
+[node name="mid3" type="Sprite" parent="texture"]
+position = Vector2( 0, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 144, 16, 16 )
+
+[node name="mid4" type="Sprite" parent="texture"]
+position = Vector2( 0, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 144, 16, 16 )
+
+[node name="mid5" type="Sprite" parent="texture"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 144, 16, 16 )
+
+[node name="mid6" type="Sprite" parent="texture"]
+position = Vector2( 0, -16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 144, 16, 16 )
+
+[node name="mid7" type="Sprite" parent="texture"]
+position = Vector2( 0, -32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 144, 16, 16 )
+
+[node name="mid8" type="Sprite" parent="texture"]
+position = Vector2( 0, -48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 144, 16, 16 )
+
+[node name="mid9" type="Sprite" parent="texture"]
+position = Vector2( 0, -64 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 144, 16, 16 )
+
+[node name="mid10" type="Sprite" parent="texture"]
+position = Vector2( 0, -64 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 144, 16, 16 )
+
+[node name="bot" type="Sprite" parent="texture"]
+position = Vector2( 0, 80 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 160, 16, 16 )
+
+[node name="collison" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -264 )
+shape = SubResource( 1 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "disabled"
+anims/RESET = SubResource( 4 )
+anims/active = SubResource( 2 )
+anims/disabled = SubResource( 3 )
+anims/inactive = SubResource( 5 )
